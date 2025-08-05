@@ -1,0 +1,50 @@
+# Source files (not needed in npm package)
+src/
+examples/
+
+# Development files
+.eslintrc*
+eslint.config.js
+.prettierrc
+jest.config.js
+tsconfig.json
+
+# Build tools
+binding.gyp
+node_modules/
+
+# Development dependencies
+coverage/
+reports/
+
+# Git
+.git/
+.gitignore
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE
+.vscode/
+.idea/
+
+# Test files
+tests/
+*.test.ts
+*.spec.ts
+
+# Documentation source
+docs/
+
+# Development data
+data/ 

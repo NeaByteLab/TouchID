@@ -1,0 +1,89 @@
+{
+  "name": "@neabyte/touchid",
+  "version": "1.0.0",
+  "description": "Native macOS Touch ID authentication with device identification, TTL caching, and TypeScript support. Features hardware UUID, device serial, and biometric type detection.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "npm run build:native && tsc && tsc-alias -f -fe .js && npm run minify",
+    "build:native": "node-gyp rebuild",
+    "minify": "find dist -name '*.js' -exec terser {} --compress --mangle -o {} \\;",
+    "dev": "tsc --watch",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --write src/**/*.ts",
+    "clean": "rm -rf dist build",
+    "prepublishOnly": "npm run clean && npm run build",
+    "docs": "typedoc src/index.ts --out docs",
+    "type-check": "tsc --noEmit",
+    "check-all": "npm run lint && npm run type-check",
+    "example:direct": "npx tsx examples/example-direct.ts",
+    "example:cached": "npx tsx examples/example-cached.ts",
+    "example:events": "npx tsx examples/example-events.ts"
+  },
+  "keywords": [
+    "touchid",
+    "biometric",
+    "authentication",
+    "macos",
+    "typescript",
+    "native",
+    "addon",
+    "security",
+    "device-identification",
+    "hardware-uuid",
+    "device-serial",
+    "ttl-caching",
+    "localauthentication",
+    "secure-enclave",
+    "biometry"
+  ],
+  "author": {
+    "name": "NeaByteLab",
+    "email": "me@neabyte.com",
+    "url": "https://github.com/NeaByteLab"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NeaByteLab/TouchID.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NeaByteLab/TouchID/issues"
+  },
+  "homepage": "https://github.com/NeaByteLab/TouchID#readme",
+  "credits": {
+    "node-mac-auth": {
+      "author": "@codebytere (Shelley Vohr)",
+      "url": "https://github.com/codebytere/node-mac-auth",
+      "license": "MIT",
+      "description": "Original Touch ID authentication implementation that inspired this library"
+    }
+  },
+  "devDependencies": {
+    "node-gyp": "^10.0.1"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "files": [
+    "dist/**/*",
+    "build/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "node-addon-api": "^8.0.0",
+    "tslib": "^2.8.1"
+  }
+}
