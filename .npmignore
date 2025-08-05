@@ -1,5 +1,8 @@
 # Source files (not needed in npm package)
 src/
+!src/native/
+
+# Examples
 examples/
 
 # Development files
@@ -10,7 +13,6 @@ jest.config.js
 tsconfig.json
 
 # Build tools
-binding.gyp
 node_modules/
 
 # Development dependencies
@@ -47,4 +49,7 @@ tests/
 docs/
 
 # Development data
-data/ 
+data/
+
+# Explicitly include binding.gyp
+!binding.gyp 

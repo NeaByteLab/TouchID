@@ -1,6 +1,6 @@
 {
   "name": "@neabyte/touchid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Native macOS Touch ID authentication with device identification, TTL caching, and TypeScript support. Features hardware UUID, device serial, and biometric type detection.",
   "type": "module",
   "main": "dist/index.js",
@@ -68,14 +68,19 @@
     }
   },
   "devDependencies": {
-    "node-gyp": "^10.0.1"
+    "@types/node": "^24.2.0",
+    "node-gyp": "^10.0.1",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.9.2"
   },
   "engines": {
     "node": ">=22.0.0"
   },
   "files": [
+    "src/native/",
     "dist/**/*",
     "build/**/*",
+    "binding.gyp",
     "README.md",
     "LICENSE"
   ],
